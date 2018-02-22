@@ -14,11 +14,10 @@ class App extends Component {
     super();
     this.state = {
       bookList : [],
-      search: '',
+      findBook: '',
 
     }
   }
-  // insert handleChange here!
   
   componentDidMount() {
     getBooks()
@@ -41,26 +40,26 @@ class App extends Component {
     })
   }
 
-  search() {
-    getBooks()
-    .then(result => {
+  foundBook(event) {
+    const findBook = event.target.value;
+    this.setState({ findBook })
+    }
 
-    })
-  }
-  
-  
-  // insert handleChange(event) here
-  render() {
-    return (
-      <div className="App">
+    
+    
+    render() {
+      return (
+        <div className="App">
         <NameTag name="Book Title" />
-        <BookList books={this.state.bookList} />
+        <BookList books={this.state.bookList} findBook={this.state.findBook} />
         <NewBookForm newBook={this.newBook.bind(this)} />
+        <BookFilter findBook={this.foundBook.bind(this)} />
 
       </div>
-    );
+    )
   }
+  
 }
-
+  
 
 export default App;

@@ -1,11 +1,13 @@
 import React from 'react';
 
-const BookFilter = ({ filter }) => {
+const BookFilter = ({ findBook }) => {
 
   return (
     <div>
-      <input type="text" onChange={this.handleOnChange}/> 
+      <input type="text" onChange={ findBook } placeholder="search"/> 
     </div>
   )
 
 }
+
+export default BookFilter;
